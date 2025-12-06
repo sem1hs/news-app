@@ -1,0 +1,3 @@
+CREATE DATABASE "newsAuthDB";
+CREATE DATABASE "newsNewsDB";
+

@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: newsAppDb
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+    ports:
+      - "5437:5432"
+    volumes:
+      - ./../db/postgres/init-base.sql:/docker-entrypoint-initdb.d/1-init-base.sql
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
