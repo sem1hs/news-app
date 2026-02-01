@@ -1,5 +1,4 @@
 services:
-
   postgres:
     image: postgres:17
     container_name: postgres
@@ -105,6 +104,19 @@ services:
     container_name: fixture-service
     ports:
       - "8085:8085"
+    depends_on:
+      config-server:
+        condition: service_healthy
+      eureka-server:
+        condition: service_started
+      postgres:
+        condition: service_healthy
+
+  standing-service:
+    image: standing-service:latest
+    container_name: standing-service
+    ports:
+      - "8086:8086"
     depends_on:
       config-server:
         condition: service_healthy
