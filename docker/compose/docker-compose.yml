@@ -125,5 +125,12 @@ services:
       postgres:
         condition: service_healthy
 
+  zipkin:
+    image: openzipkin/zipkin
+    container_name: zipkin
+    ports:
+      - "9411:9411"
+    restart: always
+
 volumes:
   postgres_data:
