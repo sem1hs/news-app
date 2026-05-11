@@ -65,6 +65,8 @@ services:
   league-service:
     image: league-service:latest
     container_name: league-service
+    env_file:
+      - ./.env
     ports:
       - "8084:8084"
     depends_on:
@@ -78,6 +80,8 @@ services:
   teams-service:
     image: teams-service:latest
     container_name: teams-service
+    env_file:
+      - ./.env
     ports:
       - "8083:8083"
     depends_on:
@@ -104,6 +108,8 @@ services:
   fixture-service:
     image: fixture-service:latest
     container_name: fixture-service
+    env_file:
+      - ./.env
     ports:
       - "8085:8085"
     depends_on:
