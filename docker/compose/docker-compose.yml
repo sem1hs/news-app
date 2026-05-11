@@ -19,10 +19,8 @@ services:
   config-server:
     image: config-server:latest
     container_name: config-server
-    environment:
-      FOOTBALL_API_KEY: ${FOOTBALL_API_KEY}
     env_file:
-      - .env
+      - ./.env
     ports:
       - "8888:8888"
     healthcheck:
