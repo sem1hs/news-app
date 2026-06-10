@@ -138,7 +138,17 @@ services:
     container_name: zipkin
     ports:
       - "9411:9411"
-    restart: always
+
+  frontend:
+    image: news-app-frontend:latest
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    env_file:
+      - ../../news-app-frontend/.env.docker
+    depends_on:
+      gateway:
+        condition: service_started
 
 volumes:
   postgres_data:
